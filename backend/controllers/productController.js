@@ -19,7 +19,7 @@ exports.createProduct = async (req, res) => {
     const created = await product.save();
     res.status(201).json(created);
   } catch (error) {
-    console.error('❌ Lỗi tạo sản phẩm:', error);
+    console.error('Lỗi tạo sản phẩm:', error);
     res.status(500).json({ message: 'Lỗi server khi tạo sản phẩm' });
   }
 };
@@ -51,7 +51,7 @@ exports.getProducts = async (req, res) => {
 
     res.json({ products, page, pages: Math.ceil(count / pageSize) });
   } catch (error) {
-    console.error('❌ Lỗi lấy danh sách sản phẩm:', error);
+    console.error('Lỗi lấy danh sách sản phẩm:', error);
     res.status(500).json({ message: 'Lỗi server khi lấy sản phẩm' });
   }
 };
@@ -77,7 +77,7 @@ exports.getProductById = async (req, res) => {
       res.status(404).json({ message: 'Không tìm thấy sản phẩm' });
     }
   } catch (error) {
-    console.error('❌ Lỗi lấy sản phẩm theo ID:', error);
+    console.error('Lỗi lấy sản phẩm theo ID:', error);
     res.status(500).json({ message: 'Lỗi server khi lấy sản phẩm' });
   }
 };
@@ -104,7 +104,7 @@ exports.updateProduct = async (req, res) => {
       res.status(404).json({ message: 'Không tìm thấy sản phẩm' });
     }
   } catch (error) {
-    console.error('❌ Lỗi cập nhật sản phẩm:', error);
+    console.error('Lỗi cập nhật sản phẩm:', error);
     res.status(500).json({ message: 'Lỗi server khi cập nhật sản phẩm' });
   }
 };
@@ -121,7 +121,7 @@ exports.deleteProduct = async (req, res) => {
     await Product.deleteOne({ _id: req.params.id });
     res.json({ message: 'Đã xoá sản phẩm' });
   } catch (error) {
-    console.error('❌ Lỗi xoá sản phẩm:', error);
+    console.error('Lỗi xoá sản phẩm:', error);
     res.status(500).json({ message: 'Lỗi server khi xoá sản phẩm' });
   }
 };
